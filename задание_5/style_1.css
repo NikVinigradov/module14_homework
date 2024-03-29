@@ -1,0 +1,40 @@
+/* Стили для input */
+input {
+    margin-right: 10px;
+  }
+  
+  /* Стили для кнопки */
+  button {
+    padding: 10px 20px;
+    background-color: rgb(7, 25, 232);
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: rgb(29, 29, 84);
+  }
+  
+  /* Стили для контейнера с картинками */
+  #images {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Стили для картинок */
+  #images img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Стили для сообщений об ошибке */
+  .error {
+    color: red;
+    font-weight: bold;
+  }
