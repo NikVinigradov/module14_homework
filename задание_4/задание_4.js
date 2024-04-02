@@ -1,26 +1,63 @@
-const widthInput = document.getElementById('widthInput');
-const heightInput = document.getElementById('heightInput');
-const submitBtn = document.getElementById('submitBtn');
-const resultDiv = document.getElementById('result');
+function useRequest(url) {
 
-submitBtn.addEventListener('click', () => {
-  const width = parseInt(widthInput.value);
-  const height = parseInt(heightInput.value);
-
-  if (isNaN(width) || isNaN(height) || width < 100 || width > 300 || height < 100 || height > 300) {
-    resultDiv.textContent = 'Одно из чисел вне диапазона от 100 до 300';
-  } else {
-    const url = ` https://dummyimage.com/100x300/`;
-
-    fetch(url)
-      .then(response => {
-        const img = document.createElement('img');
-        img.src = response.url;
-        resultDiv.innerHTML = '';
-        resultDiv.appendChild(img);
+  const options = {
+      method: 'GET',
+      mode: 'cors'
+  };
+  fetch(url, options)
+      .then((response) => {
+          console.log("responce", response)
+          let url = response.url
+          console.log(url)
+          return url
       })
-      .catch(error => {
-        resultDiv.textContent = 'Ошибка загрузки картинки';
+      .then((url) => {
+          let cards = ""
+          const cardBlock = `<div class="card">
+      <img src="${url}" class="card-image"/></div>`;
+          console.log(`${url}`)
+          cards = cards + cardBlock;
+          console.log(cards)
+          resultRequest.innerHTML = cards;
+
+      })
+
+      .catch(() => {
+          console.log('error')
       });
+};
+
+
+function deleteError() {
+  const divErrorInput = document.querySelector(".error");
+  divErrorInput.innerHTML = " ";
+}
+
+function error() {
+  const divEr = document.querySelector(".error");
+  const error = `<div class="error_number"><p>Числа вне диапазона от 100 до 300</p></div>`
+  divEr.innerHTML = error;
+
+  setTimeout(deleteError, 2000);
+
+};
+
+const resultRequest = document.querySelector(".result");
+const btn = document.querySelector(".btn");
+
+
+btn.addEventListener("click", async (e) => {
+  console.log("start");
+  let value1 = `${document.querySelector('.input__1').value}`;
+  let value2 = `${document.querySelector('.input__2').value}`;
+  if (value1 > 300 || value1 < 100 || value1 === 0 && value2 > 300 || value2 < 100 || value2 === 0) {
+      error()
+  } else {
+      let valueUrl = `https://picsum.photos/${value1}/${value2}`
+      const requestResult = await useRequest(valueUrl);
+      console.log("Значение", valueUrl);
+      console.log("end");
   }
-});
+}
+);
+

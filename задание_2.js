@@ -1,4 +1,3 @@
-
 // JSON-строка
 const jsonString = `{
     "list": [

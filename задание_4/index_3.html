@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>Приложение для загрузки изображения</title>
+  <link rel="stylesheet" href="style.css">
   <script src="задание_4.js" defer></script>
 </head>
 <body>
-  <label for="widthInput">Ширина:</label>
-  <input type="text" id="widthInput">
-  <label for="heightInput">Высота:</label>
-  <input type="text" id="heightInput">
-  <button id="submitBtn">Отправить</button>
-  <div id="result"></div>
+  <div class="form-input">
+    <p>Введите числa от 100 до 300:</p>
+    <input class="input__1 input-area" type="number">
+    <input class="input__2 input-area" type="number">
+    <input class="btn button-submit" type="submit" value="Отправить">
+</div>
+<div class="error"></div>
+<div class="result j-result">Здесь будет результат запроса</div>
+</body>
 </body>
 </html>

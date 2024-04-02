@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   <title>Получение картинок с помощью XMLHttpRequest</title>
   <link rel="stylesheet" href="style_1.css">
-  <script src="задание_5.js"></script>
+  <script src="задание_5.js" defer></script>
 </head>
 <body>
-  <h2>Номер страницы</h2>
-  <input type="number" id="inputPage">
-
-  <h2>Лимит</h2>
-  <input type="number" id="inputLimit">
-
-  <button id="btn">Запрос</button>
-
-  <div id="images"></div>
+  <div class="form-input">
+    <p>Сделайте запрос</p>
+    <input class="input__1 input-area" type="number">
+    <label class="label1">Номер страницы:</label>
+    <input class="input__2 input-area" type="number">
+    <label class="label2">Лимит:</label>
+    <input class="btn button-submit" type="submit" value="Запрос">
+</div>
+<div class="error"></div>
+<div class="result j-result">Здесь будет результат запроса</div>
 </body>
 </html>

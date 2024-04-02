@@ -1,5 +1,3 @@
-
-
 const parser = new DOMParser();
 
 const xmlString = `
